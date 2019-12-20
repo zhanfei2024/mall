@@ -1,0 +1,2958 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/comment/": {
+            "get": {
+                "tags": [
+                    "comment"
+                ],
+                "description": "get all comments",
+                "operationId": "CommentController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comment"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "comment"
+                ],
+                "description": "create comment",
+                "operationId": "CommentController.CreateComment",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for comment content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Comment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.comment.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/comment/{uid}": {
+            "get": {
+                "tags": [
+                    "comment"
+                ],
+                "description": "get comment by uid",
+                "operationId": "CommentController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comment"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "comment"
+                ],
+                "description": "update the comment",
+                "operationId": "CommentController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for comment content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Comment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comment"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "comment"
+                ],
+                "description": "delete the comment",
+                "operationId": "CommentController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/login/": {
+            "post": {
+                "tags": [
+                    "login"
+                ],
+                "description": "Login umsMember",
+                "operationId": "LoginController.Login",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMember content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/logout/": {
+            "post": {
+                "tags": [
+                    "logout"
+                ],
+                "description": "Logout umsMember",
+                "operationId": "LogoutController.Logout",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMember content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/monitor/": {
+            "get": {
+                "tags": [
+                    "monitor"
+                ],
+                "description": "get all Monitors",
+                "operationId": "MonitorController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Monitor"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "monitor"
+                ],
+                "description": "create monitor",
+                "operationId": "MonitorController.CreateMonitor",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for monitor content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Monitor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.Monitor.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/monitor/{uid}": {
+            "get": {
+                "tags": [
+                    "monitor"
+                ],
+                "description": "get monitor by uid",
+                "operationId": "MonitorController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Monitor"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "monitor"
+                ],
+                "description": "update the monitor",
+                "operationId": "MonitorController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for monitor content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Monitor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Monitor"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "monitor"
+                ],
+                "description": "delete the monitor",
+                "operationId": "MonitorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/object/": {
+            "get": {
+                "tags": [
+                    "object"
+                ],
+                "description": "get all objects",
+                "operationId": "ObjectController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    },
+                    "403": {
+                        "description": ":objectId is empty"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "object"
+                ],
+                "description": "create object",
+                "operationId": "ObjectController.Create",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The object content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} models.Object.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/object/{objectId}": {
+            "get": {
+                "tags": [
+                    "object"
+                ],
+                "description": "find object by objectid",
+                "operationId": "ObjectController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "objectId",
+                        "description": "the objectid you want to get",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    },
+                    "403": {
+                        "description": ":objectId is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "object"
+                ],
+                "description": "update the object",
+                "operationId": "ObjectController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "objectId",
+                        "description": "The objectid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "The body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Object"
+                        }
+                    },
+                    "403": {
+                        "description": ":objectId is empty"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "object"
+                ],
+                "description": "delete the object",
+                "operationId": "ObjectController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "objectId",
+                        "description": "The objectId you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "objectId is empty"
+                    }
+                }
+            }
+        },
+        "/pms_brand/": {
+            "get": {
+                "tags": [
+                    "pms_brand"
+                ],
+                "description": "get all PmsBrands",
+                "operationId": "PmsBrandController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsBrand"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pms_brand"
+                ],
+                "description": "create PmsBrand",
+                "operationId": "PmsBrandController.CreatePmsBrand",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsBrand content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsBrand"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.PmsBrand.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/pms_brand/{uid}": {
+            "get": {
+                "tags": [
+                    "pms_brand"
+                ],
+                "description": "get PmsBrand by uid",
+                "operationId": "PmsBrandController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsBrand"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "pms_brand"
+                ],
+                "description": "update the PmsBrand",
+                "operationId": "PmsBrandController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsBrand content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsBrand"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsBrand"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "pms_brand"
+                ],
+                "description": "delete the PmsBrand",
+                "operationId": "PmsBrandController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/pms_feight_template/": {
+            "get": {
+                "tags": [
+                    "pms_feight_template"
+                ],
+                "description": "get all PmsFeightTemplates",
+                "operationId": "PmsFeightTemplateController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsFeightTemplate"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pms_feight_template"
+                ],
+                "description": "create PmsFeightTemplate",
+                "operationId": "PmsFeightTemplateController.CreatePmsFeightTemplate",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsFeightTemplate content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsFeightTemplate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.PmsFeightTemplate.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/pms_feight_template/{uid}": {
+            "get": {
+                "tags": [
+                    "pms_feight_template"
+                ],
+                "description": "get PmsFeightTemplate by uid",
+                "operationId": "PmsFeightTemplateController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsFeightTemplate"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "pms_feight_template"
+                ],
+                "description": "update the PmsFeightTemplate",
+                "operationId": "PmsFeightTemplateController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsFeightTemplate content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsFeightTemplate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsFeightTemplate"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "pms_feight_template"
+                ],
+                "description": "delete the PmsFeightTemplate",
+                "operationId": "PmsFeightTemplateController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product/": {
+            "get": {
+                "tags": [
+                    "pms_product"
+                ],
+                "description": "get all pmsProducts",
+                "operationId": "PmsProductController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProduct"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pms_product"
+                ],
+                "description": "create pmsProduct",
+                "operationId": "PmsProductController.CreatePmsProduct",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for pmsProduct content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.pmsProduct.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product/{uid}": {
+            "get": {
+                "tags": [
+                    "pms_product"
+                ],
+                "description": "get pmsProduct by uid",
+                "operationId": "PmsProductController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProduct"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "pms_product"
+                ],
+                "description": "update the pmsProduct",
+                "operationId": "PmsProductController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for pmsProduct content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProduct"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "pms_product"
+                ],
+                "description": "delete the pmsProduct",
+                "operationId": "PmsProductController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product_attribute_category/": {
+            "get": {
+                "tags": [
+                    "pms_product_attribute_category"
+                ],
+                "description": "get all PmsProductAttributeCategorys",
+                "operationId": "PmsProductAttributeCategoryController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pms_product_attribute_category"
+                ],
+                "description": "create PmsProductAttributeCategory",
+                "operationId": "PmsProductAttributeCategoryController.CreatePmsProductAttributeCategory",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsProductAttributeCategory content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.PmsProductAttributeCategory.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product_attribute_category/{uid}": {
+            "get": {
+                "tags": [
+                    "pms_product_attribute_category"
+                ],
+                "description": "get PmsProductAttributeCategory by uid",
+                "operationId": "PmsProductAttributeCategoryController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "pms_product_attribute_category"
+                ],
+                "description": "update the PmsProductAttributeCategory",
+                "operationId": "PmsProductAttributeCategoryController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsProductAttributeCategory content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "pms_product_attribute_category"
+                ],
+                "description": "delete the PmsProductAttributeCategory",
+                "operationId": "PmsProductAttributeCategoryController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product_category/": {
+            "get": {
+                "tags": [
+                    "pms_product_category"
+                ],
+                "description": "get all PmsProductCategorys",
+                "operationId": "PmsProductCategoryController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductCategory"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pms_product_category"
+                ],
+                "description": "create PmsProductCategory",
+                "operationId": "PmsProductCategoryController.CreatePmsProductCategory",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsProductCategory content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.PmsProductCategory.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/pms_product_category/{uid}": {
+            "get": {
+                "tags": [
+                    "pms_product_category"
+                ],
+                "description": "get PmsProductCategory by uid",
+                "operationId": "PmsProductCategoryController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductCategory"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "pms_product_category"
+                ],
+                "description": "update the PmsProductCategory",
+                "operationId": "PmsProductCategoryController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PmsProductCategory content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PmsProductCategory"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "pms_product_category"
+                ],
+                "description": "delete the PmsProductCategory",
+                "operationId": "PmsProductCategoryController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/post/": {
+            "get": {
+                "tags": [
+                    "post"
+                ],
+                "description": "get all Posts",
+                "operationId": "PostController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Post"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "post"
+                ],
+                "description": "create post",
+                "operationId": "PostController.CreatePost",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for post content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.Post.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/post/{uid}": {
+            "get": {
+                "tags": [
+                    "post"
+                ],
+                "description": "get post by uid",
+                "operationId": "PostController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Post"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "post"
+                ],
+                "description": "update the post",
+                "operationId": "PostController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for post content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Post"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "post"
+                ],
+                "description": "delete the post",
+                "operationId": "PostController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/register/": {
+            "post": {
+                "tags": [
+                    "register"
+                ],
+                "description": "Register umsMember",
+                "operationId": "RegisterController.Register",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMember content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.UmsMember.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/tag/": {
+            "get": {
+                "tags": [
+                    "tag"
+                ],
+                "description": "get all tags",
+                "operationId": "TagController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Tag"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tag"
+                ],
+                "description": "create tag",
+                "operationId": "TagController.CreateTag",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for tag content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Tag"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.Tag.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/tag/{uid}": {
+            "get": {
+                "tags": [
+                    "tag"
+                ],
+                "description": "get tag by uid",
+                "operationId": "TagController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Tag"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tag"
+                ],
+                "description": "update the tag",
+                "operationId": "TagController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for tag content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Tag"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Tag"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tag"
+                ],
+                "description": "delete the tag",
+                "operationId": "TagController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member/": {
+            "get": {
+                "tags": [
+                    "ums_member"
+                ],
+                "description": "get all UmsMembers",
+                "operationId": "UmsMemberController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ums_member"
+                ],
+                "description": "create UmsMember",
+                "operationId": "UmsMemberController.CreateUmsMember",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMember content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.UmsMember.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member/{uid}": {
+            "get": {
+                "tags": [
+                    "ums_member"
+                ],
+                "description": "get UmsMember by uid",
+                "operationId": "UmsMemberController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ums_member"
+                ],
+                "description": "update the UmsMember",
+                "operationId": "UmsMemberController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMember content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMember"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ums_member"
+                ],
+                "description": "delete the UmsMember",
+                "operationId": "UmsMemberController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_level/": {
+            "get": {
+                "tags": [
+                    "ums_member_level"
+                ],
+                "description": "get all UmsMemberLevels",
+                "operationId": "UmsMemberLevelController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberLevel"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ums_member_level"
+                ],
+                "description": "create UmsMemberLevel",
+                "operationId": "UmsMemberLevelController.CreateUmsMemberLevel",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberLevel content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberLevel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.UmsMemberLevel.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_level/{uid}": {
+            "get": {
+                "tags": [
+                    "ums_member_level"
+                ],
+                "description": "get UmsMemberLevel by uid",
+                "operationId": "UmsMemberLevelController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberLevel"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ums_member_level"
+                ],
+                "description": "update the UmsMemberLevel",
+                "operationId": "UmsMemberLevelController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberLevel content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberLevel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberLevel"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ums_member_level"
+                ],
+                "description": "delete the UmsMemberLevel",
+                "operationId": "UmsMemberLevelController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_receive_address/": {
+            "get": {
+                "tags": [
+                    "ums_member_receive_address"
+                ],
+                "description": "get all UmsMemberReceiveAddresss",
+                "operationId": "UmsMemberReceiveAddressController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberReceiveAddress"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ums_member_receive_address"
+                ],
+                "description": "create UmsMemberReceiveAddress",
+                "operationId": "UmsMemberReceiveAddressController.CreateUmsMemberReceiveAddress",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberReceiveAddress content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberReceiveAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.UmsMemberReceiveAddress.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_receive_address/{uid}": {
+            "get": {
+                "tags": [
+                    "ums_member_receive_address"
+                ],
+                "description": "get UmsMemberReceiveAddress by uid",
+                "operationId": "UmsMemberReceiveAddressController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberReceiveAddress"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ums_member_receive_address"
+                ],
+                "description": "update the UmsMemberReceiveAddress",
+                "operationId": "UmsMemberReceiveAddressController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberReceiveAddress content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberReceiveAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberReceiveAddress"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ums_member_receive_address"
+                ],
+                "description": "delete the UmsMemberReceiveAddress",
+                "operationId": "UmsMemberReceiveAddressController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_statistics_info/": {
+            "get": {
+                "tags": [
+                    "ums_member_statistics_info"
+                ],
+                "description": "get all UmsMemberStatisticsInfos",
+                "operationId": "UmsMemberStatisticsInfoController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ums_member_statistics_info"
+                ],
+                "description": "create UmsMemberStatisticsInfo",
+                "operationId": "UmsMemberStatisticsInfoController.CreateUmsMemberStatisticsInfo",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberStatisticsInfo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.UmsMemberStatisticsInfo.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ums_member_statistics_info/{uid}": {
+            "get": {
+                "tags": [
+                    "ums_member_statistics_info"
+                ],
+                "description": "get UmsMemberStatisticsInfo by uid",
+                "operationId": "UmsMemberStatisticsInfoController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ums_member_statistics_info"
+                ],
+                "description": "update the UmsMemberStatisticsInfo",
+                "operationId": "UmsMemberStatisticsInfoController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UmsMemberStatisticsInfo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ums_member_statistics_info"
+                ],
+                "description": "delete the UmsMemberStatisticsInfo",
+                "operationId": "UmsMemberStatisticsInfoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        },
+        "/user/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "description": "get all Users",
+                "operationId": "UserController.GetAll",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "description": "create users",
+                "operationId": "UserController.CreateUser",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for user content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{int} models.User.Id"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/user/{uid}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "description": "get user by uid",
+                "operationId": "UserController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "description": "update the user",
+                "operationId": "UserController.Update",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for user content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "description": "delete the user",
+                "operationId": "UserController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The uid you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "uid is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Comment": {
+            "title": "Comment",
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "monitor": {
+                    "$ref": "#/definitions/models.Monitor"
+                },
+                "user": {
+                    "$ref": "#/definitions/models.User"
+                }
+            }
+        },
+        "models.Monitor": {
+            "title": "Monitor",
+            "type": "object",
+            "properties": {
+                "addr": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "lat": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "lon": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "status": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Object": {
+            "title": "Object",
+            "type": "object",
+            "properties": {
+                "ObjectId": {
+                    "type": "string"
+                },
+                "PlayerName": {
+                    "type": "string"
+                },
+                "Score": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.PmsBrand": {
+            "title": "PmsBrand",
+            "type": "object",
+            "properties": {
+                "big_pic": {
+                    "description": "专区大图",
+                    "type": "string"
+                },
+                "brand_story": {
+                    "description": "品牌故事",
+                    "type": "string"
+                },
+                "factory_status": {
+                    "description": "是否为品牌制造商：0-\u003e不是；1-\u003e是",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "first_letter": {
+                    "description": "首字母",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "logo": {
+                    "description": "品牌logo",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "品牌名称",
+                    "type": "string"
+                },
+                "product_comment_count": {
+                    "description": "产品评论数量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "product_count": {
+                    "description": "产品数量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "show_status": {
+                    "description": "是否显示",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.PmsFeightTemplate": {
+            "title": "PmsFeightTemplate",
+            "type": "object",
+            "properties": {
+                "charge_type": {
+                    "description": "收费类型",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "continue_fee": {
+                    "description": "续费",
+                    "type": "number",
+                    "format": "double"
+                },
+                "continue_weight": {
+                    "description": "续重",
+                    "type": "number",
+                    "format": "double"
+                },
+                "dest": {
+                    "description": "目的地",
+                    "type": "string"
+                },
+                "first_fee": {
+                    "description": "首费",
+                    "type": "number",
+                    "format": "double"
+                },
+                "first_weight": {
+                    "description": "首重",
+                    "type": "number",
+                    "format": "double"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "运费模板名称",
+                    "type": "string"
+                }
+            }
+        },
+        "models.PmsProduct": {
+            "title": "PmsProduct",
+            "type": "object",
+            "properties": {
+                "KeyWords": {
+                    "description": "关键字",
+                    "type": "string"
+                },
+                "LowStock": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ServiceIds": {
+                    "type": "string"
+                },
+                "Stock": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Unit": {
+                    "type": "string"
+                },
+                "album_pics": {
+                    "description": "画册图片，连产品图片限制为5张，以逗号分割",
+                    "type": "string"
+                },
+                "brand_name": {
+                    "description": "品牌名称",
+                    "type": "string"
+                },
+                "delete_status": {
+                    "description": "删除状态：0-\u003e未删除；1-\u003e已删除",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "description": {
+                    "description": "商品描述",
+                    "type": "string"
+                },
+                "detail_desc": {
+                    "description": "详情描述",
+                    "type": "string"
+                },
+                "detail_html": {
+                    "description": "产品详情网页内容",
+                    "type": "string"
+                },
+                "detail_mobile_html": {
+                    "description": "移动端网页详情",
+                    "type": "string"
+                },
+                "detail_title": {
+                    "description": "详情标题",
+                    "type": "string"
+                },
+                "gift_growth": {
+                    "description": "赠送的成长值",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "gift_point": {
+                    "description": "赠送的积分",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "商品名称",
+                    "type": "string"
+                },
+                "new_status": {
+                    "description": "新品状态:0-\u003e不是新品；1-\u003e新品",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "note": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "original_price": {
+                    "description": "市场价",
+                    "type": "number",
+                    "format": "double"
+                },
+                "pic": {
+                    "description": "图片",
+                    "type": "string"
+                },
+                "pms_brand": {
+                    "$ref": "#/definitions/models.PmsBrand"
+                },
+                "pms_feight_template": {
+                    "$ref": "#/definitions/models.PmsFeightTemplate"
+                },
+                "pms_product_attribute_category": {
+                    "$ref": "#/definitions/models.PmsProductAttributeCategory"
+                },
+                "pms_product_category": {
+                    "$ref": "#/definitions/models.PmsProductCategory"
+                },
+                "preview_status": {
+                    "description": "是否为预告商品",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "price": {
+                    "description": "促销价格",
+                    "type": "number",
+                    "format": "double"
+                },
+                "product_sn": {
+                    "description": "货号",
+                    "type": "string"
+                },
+                "promotion_end_time": {
+                    "description": "促销结束时间",
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "promotion_per_limit": {
+                    "description": "活动限购数量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "promotion_start_time": {
+                    "description": "促销开始时间",
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "promotion_type": {
+                    "description": "产品分类名称",
+                    "type": "string"
+                },
+                "publish_status": {
+                    "description": "上架状态：0-\u003e下架；1-\u003e上架",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "recommend_status": {
+                    "description": "推荐状态；0-\u003e不推荐；1-\u003e推荐",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sale": {
+                    "description": "销量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sub_title": {
+                    "description": "副标题",
+                    "type": "string"
+                },
+                "use_point_limit": {
+                    "description": "限制使用的积分数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "verify_status": {
+                    "description": "审核状态：0-\u003e未审核；1-\u003e审核通过",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "weight": {
+                    "description": "商品重量",
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.PmsProductAttributeCategory": {
+            "title": "PmsProductAttributeCategory",
+            "type": "object",
+            "properties": {
+                "attribute_count": {
+                    "description": "属性数量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "param_count": {
+                    "description": "参数数量",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.PmsProductCategory": {
+            "title": "PmsProductCategory",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "图标",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "keywords": {
+                    "description": "关键字",
+                    "type": "string"
+                },
+                "level": {
+                    "description": "分类级别：0-\u003e1级；1-\u003e2级",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "分类名称",
+                    "type": "string"
+                },
+                "nav_status": {
+                    "description": "是否显示在导航栏：0-\u003e不显示；1-\u003e显示",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "parent_id": {
+                    "description": "上级分类的编号：0表示一级分类",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "product_count": {
+                    "description": "商品数量",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "product_unit": {
+                    "description": "商品单位",
+                    "type": "string"
+                },
+                "show_status": {
+                    "description": "显示状态：0-\u003e不显示；1-\u003e显示",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Post": {
+            "title": "Post",
+            "type": "object",
+            "properties": {
+                "Tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Tag"
+                    }
+                },
+                "User": {
+                    "$ref": "#/definitions/models.User"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Profile": {
+            "title": "Profile",
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Tag": {
+            "title": "Tag",
+            "type": "object",
+            "properties": {
+                "Posts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Post"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UmsMember": {
+            "title": "UmsMember",
+            "type": "object",
+            "properties": {
+                "birthday": {
+                    "description": "生日",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "city": {
+                    "description": "城市",
+                    "type": "string"
+                },
+                "create_time": {
+                    "description": "创建日期",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "gender": {
+                    "description": "性别",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "growth": {
+                    "description": "成长值",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "history_integration": {
+                    "description": "整合次数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "icon": {
+                    "description": "头像",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "integration": {
+                    "description": "整合",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "job": {
+                    "description": "职业",
+                    "type": "string"
+                },
+                "luckey_count": {
+                    "description": "幸运此次",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nick_name": {
+                    "description": "昵称",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "密码",
+                    "type": "string"
+                },
+                "personalized_signature": {
+                    "description": "个性签名",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "手机",
+                    "type": "string"
+                },
+                "source_type": {
+                    "description": "来源渠道 1 app, 2 小程序",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "status": {
+                    "description": "用户状态 0 禁用 1 可用",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ums_member_level": {
+                    "$ref": "#/definitions/models.UmsMemberLevel"
+                },
+                "ums_member_statistics_info": {
+                    "$ref": "#/definitions/models.UmsMemberStatisticsInfo"
+                },
+                "user_name": {
+                    "description": "用户名",
+                    "type": "string"
+                }
+            }
+        },
+        "models.UmsMemberLevel": {
+            "title": "UmsMemberLevel",
+            "type": "object",
+            "properties": {
+                "comment_growth_point": {
+                    "description": "点评获得的点数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "default_status": {
+                    "description": "默认状态",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "free_freight_point": {
+                    "description": "可用免费快递点数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "growth_point": {
+                    "description": "成长值",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "级别名称",
+                    "type": "string"
+                },
+                "note": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "priviledge_birthday": {
+                    "description": "生日礼包 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priviledge_comment": {
+                    "description": "评价奖励 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priviledge_free_freight": {
+                    "description": "减免运费特权 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priviledge_member_price": {
+                    "description": "会员特价 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priviledge_promotion": {
+                    "description": "专享活动 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "priviledge_sifn_in": {
+                    "description": "签到奖励 1 获取， 0 未获取",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.UmsMemberReceiveAddress": {
+            "title": "UmsMemberReceiveAddress",
+            "type": "object",
+            "properties": {
+                "Region": {
+                    "description": "区(县)",
+                    "type": "string"
+                },
+                "city": {
+                    "description": "城市名",
+                    "type": "string"
+                },
+                "default_status": {
+                    "description": "默认状态 0 非默认， 1 默认",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "detail_address": {
+                    "description": "详细地址",
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "收货人名称",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "电话",
+                    "type": "string"
+                },
+                "post_code": {
+                    "description": "邮政编码",
+                    "type": "string"
+                },
+                "province": {
+                    "description": "省名称",
+                    "type": "string"
+                },
+                "ums_member": {
+                    "$ref": "#/definitions/models.UmsMember"
+                }
+            }
+        },
+        "models.UmsMemberStatisticsInfo": {
+            "title": "UmsMemberStatisticsInfo",
+            "type": "object",
+            "properties": {
+                "attend_count": {
+                    "description": "参加次数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "collect_comment_count": {
+                    "description": "收集评论数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "collect_product_count": {
+                    "description": "收集产品计数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "collect_subject_count": {
+                    "description": "收集专题数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "collect_topic_count": {
+                    "description": "收集主题数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "comment_count": {
+                    "description": "评论总数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "consume_amount": {
+                    "description": "消费金额",
+                    "type": "number",
+                    "format": "double"
+                },
+                "coupon_count": {
+                    "description": "优惠券总数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "fans_count": {
+                    "description": "粉丝数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "invite_friend_count": {
+                    "description": "邀请好友计数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "login_count": {
+                    "description": "登录次数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "order_count": {
+                    "description": "订单总数",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "recent_order_time": {
+                    "description": "最近订购时间",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "return_order_count": {
+                    "description": "退货订单数",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.User": {
+            "title": "User",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "profile": {
+                    "$ref": "#/definitions/models.Profile"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "object",
+            "description": "Operations about object\n"
+        },
+        {
+            "name": "register",
+            "description": "Operations about Register\n"
+        },
+        {
+            "name": "login",
+            "description": "Operations about Login\n"
+        },
+        {
+            "name": "logout",
+            "description": "Operations about Logout\n"
+        },
+        {
+            "name": "user",
+            "description": "Operations about Users\n"
+        },
+        {
+            "name": "monitor",
+            "description": "Operations about Monitor\n"
+        },
+        {
+            "name": "comment",
+            "description": "Operations about Comments\n"
+        },
+        {
+            "name": "post",
+            "description": "Operations about Posts\n"
+        },
+        {
+            "name": "tag",
+            "description": "Operations about Tag\n"
+        },
+        {
+            "name": "pms_product",
+            "description": "Operations about PmsProducts\n"
+        },
+        {
+            "name": "pms_product_category",
+            "description": "Operations about PmsProductCategory\n"
+        },
+        {
+            "name": "pms_brand",
+            "description": "Operations about PmsBrand\n"
+        },
+        {
+            "name": "pms_product_attribute_category",
+            "description": "Operations about PmsProductAttributeCategory\n"
+        },
+        {
+            "name": "pms_feight_template",
+            "description": "Operations about PmsFeightTemplate\n"
+        },
+        {
+            "name": "ums_member",
+            "description": "Operations about UmsMember\n"
+        },
+        {
+            "name": "ums_member_level",
+            "description": "Operations about UmsMemberLevel\n"
+        },
+        {
+            "name": "ums_member_statistics_info",
+            "description": "Operations about UmsMemberStatisticsInfo\n"
+        },
+        {
+            "name": "ums_member_receive_address",
+            "description": "Operations about UmsMemberReceiveAddress\n"
+        }
+    ]
+}
