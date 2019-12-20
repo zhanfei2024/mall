@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "first_go/routers"
+	_ "mall/routers"
 	"fmt"
 
 	"github.com/astaxie/beego"

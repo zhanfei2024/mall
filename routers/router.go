@@ -9,7 +9,7 @@ package routers
 // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
 
 import (
-	"first_go/controllers"
+	"mall/controllers"
 
 	"github.com/astaxie/beego"
 )

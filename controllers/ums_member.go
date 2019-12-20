@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"encoding/json"
-	"first_go/models"
-	"first_go/utils"
+	"mall/models"
+	"mall/utils"
 	"fmt"
 	"strconv"
 )

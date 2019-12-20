@@ -1,4 +1,4 @@
-module first_go
+module mall
 
 go 1.13
 

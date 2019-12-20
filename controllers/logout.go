@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
-	"first_go/models"
+	"mall/models"
 )
 
 // Operations about Logout

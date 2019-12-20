@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"first_go/models"
+	"mall/models"
 	"encoding/json"
 
 	"github.com/astaxie/beego"

@@ -2,7 +2,7 @@ package models
 
 import (
 	"errors"
-	"first_go/utils"
+	"mall/utils"
 	"strconv"
 	"time"
 
